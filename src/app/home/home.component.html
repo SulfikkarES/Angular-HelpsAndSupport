@@ -1,0 +1,48 @@
+
+<button class="btn btn-primary">Support</button>
+<button type="button" class="btn btn-secondary">Secondary</button>
+<button type="button" class="btn btn-success">Success</button>
+<br><br>
+<table class="table table-striped" >
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>AGE</th>
+    <th>Dob</th>
+    <th>Gender</th>
+    <th>CourseFee</th>
+  </tr>
+  <tr *ngFor='let student of studentList' >
+    <td>{{student.ID | uppercase}}</td>
+    <td>{{student.Name | pipeName :student.Gender}}</td>
+    <td>{{student.Age}}</td>
+    <td>{{student.Dob |date  }}</td>
+    <td>{{student.Gender | lowercase}}</td>
+    <td>{{student.CourseFee |currency :'INR':true}}</td>
+  </tr>
+
+</table>
+<br>
+<input type="text" name="tvalue" [(ngModel)]= 'val'/>
+<div [ngSwitch]="val">
+  <h1 *ngSwitchCase="'1'">One</h1>
+  <h1 *ngSwitchCase="'2'">Two</h1>
+  <h1 *ngSwitchCase="'3'">Three</h1>
+  <h1 *ngSwitchDefault="">Invalid</h1>
+</div>
+
+<div>
+<div *ngIf="valid else test">         
+<h2>Congratulations</h2>
+</div>
+<ng-template #test>
+<h2>ifelse working</h2>
+</ng-template>
+</div>
+<p>home works!</p>
+<button>click me</button>
+<input type="text">
+<h2>two way binding is here  </h2>
+<p>you entered is {{txtval}}</p>
+<input type="text" [(ngModel)]= 'txtval'/>
+<app-root></app-root>

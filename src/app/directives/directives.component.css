@@ -1,0 +1,17 @@
+.boldClass
+{
+font-weight: bold;
+}
+.italicClass
+{
+font-style: italic;
+}
+.colorClass
+{
+  color: blueviolet;
+}
+
+.newClass
+{
+text-decoration: underline;
+}

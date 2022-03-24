@@ -1,0 +1,26 @@
+<p>reactive-form works!</p>
+
+<form [ formGroup ]="reactFormSample" (ngSubmit)="onSubmit()" novalidate>
+  <label>  First Name  </label>
+  <input type="text" name="txtFirstName"  id="txtFirstName" formControlName="firstname" /><br>
+  <div *ngif="!reactFormSample.controls.firstname?.valid && (reactFormSample.controls.firstname?.dirty || reactFormSample.controls.firstname?.touched) " >
+<div *ngif="reactFormSample.controls.firstname.error.required">
+  first name is empty
+</div>
+  </div>
+  <label>  Last Name  </label>
+  <input type="text" name="txtLastName" id="txtLastName" formControlName="lastname">
+<br>
+<label>Email</label>
+<input type="email" name="Email" id="email" formControlName="email">
+  <br><br>
+  <label>Gender</label>
+  <input type="radio" name="Gender" id="rdmail" value="Male" formControlName="gender">Male
+  <input type="radio" name="Gender" id="rdfemail" value="Female" formControlName="gender">Female
+ <br>
+  <input type="checkbox" name="ismarried" formControlName="ismarried" /> Married
+
+  <button type="submit" class="btn btn-primary">Submit</button><br><br>
+
+</form>
+

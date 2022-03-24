@@ -1,0 +1,58 @@
+<p>register-forms works!</p>
+<form #registerForm="ngForm" (ngSubmit)="RegisterStudent(registerForm)">
+  <label>  First Name  </label>
+  <input type="text" name="txtFirstName" required maxlength="10" minlength="3" id="txtFirstName" [(ngModel)]="FirstName"/><br>
+  <div *ngIf="!registerForm.controls['txtFirstName']?.valid && (registerForm.controls['txtFirstName']?.touched || registerForm.controls['txtFirstName']?.dirty)">
+<div *ngIf="registerForm.controls['txtFirstName'].errors['required']">
+Enter first name
+</div>
+<div *ngIf="registerForm.controls['txtFirstName'].errors['minlength']">
+  please enter minimun 3 chareacters
+  </div>
+  <div *ngIf="registerForm.controls['txtFirstName'].errors['maxlength']">
+     maximum limit is 10 characters only
+    </div>
+
+  </div>
+  <label>  Last Name  </label>
+  <input type="text" name="txtLastName" required maxlength="5" minlength="2" id="txtLastName" [(ngModel)]="LastName">
+  <div *ngIf="!registerForm.controls['txtLastName']?.valid && (registerForm.controls['txtLastName']?.touched || registerForm.controls['txtLastName']?.dirty)">
+<div *ngIf="registerForm.controls['txtLastName'].errors['required']">
+  plaase enter last name
+</div>
+
+</div>
+<div *ngIf="registerForm.controls['txtLastName'].errors['minlength']">
+  please enter minimun 2 chareacters
+  </div>
+  <div *ngIf="registerForm.controls['txtLastName'].errors['maxlength']">
+     maximum limit is 5 characters only, so limit exhusted
+    </div>
+
+  <br><br>
+  <label>Gender</label>
+  <input type="radio" name="Gender" id="rdmail" value="Male"  ngModel>Male
+  <input type="radio" name="Gender" id="rdfemail" value="Female" [(ngModel)]="gender" >Female
+ <br>
+  <label>Accept tearms and conditions</label>
+  <input type="checkbox" name="isaccept" [(ngModel)]="isaccept" />
+  <br>
+  <label>Select a number</label>
+  <select name="selection" [(ngModel)]="selvalue">
+    <option value="0" > --Select-- </option>
+    <option value="1">One</option>
+    <option value="2" >Two</option>
+    <option value="3" >Three</option>
+  </select>
+ <br><br>
+  <button type="submit" class="btn btn-primary">Submit</button><br><br>
+
+</form>
+
+<p> Value: {{registerForm.value | json}} </p>
+<p> valid: {{registerForm.valid}}</p>
+<p> touched: {{registerForm.touched}}</p>
+<p> submitted: {{registerForm.submitted}}</p>
+
+<h2>First Name is {{FirstName}}</h2>
+<h2>and Last Name is {{LastName}}</h2>
